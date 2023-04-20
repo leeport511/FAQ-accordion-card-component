@@ -1,19 +1,53 @@
 import React, { useState } from "react";
-import { ArrowButton } from "./components/ArrowButton";
+import { FaqQuestionBox } from "./components/FaqQuestionBox";
 
-
+const faqQuestions = [
+    {
+        id: 1,
+        question: "How many team members can i invite?",
+        response: "You can invite only 5 members of your team",
+        open: false,
+    },
+    {
+        id: 2,
+        question: "What is the maximun file upload size?",
+        response:
+            "No mere than 2GB. All files in your account must fit your alloted storage space.",
+            open: false,
+    },
+    {
+        id: 3,
+        question: "How do i reset my password?",
+        response:
+            "You must click the reset password button and we will send you an email with a link for reset password.",
+            open: false,
+    },
+    {
+        id: 4,
+        question: "Can i cancel my subscription?",
+        response: "Yes of course, whenever you want.",
+        open: false,
+    },
+    {
+        id: 5,
+        question: "Do you provide additional ?",
+        response:
+            "Chat and email support is available 24/7. Phone lines are open during normal business hours.",
+            open: false,
+    },
+];
 
 export const FaqCardComponent = () => {
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [questions, setQuestions] = useState(faqQuestions)
 
 
-    const handleButtonOpen = () => {
-        setIsOpen(!isOpen);
-        
-    }
-
-
+    const handleButtonOpen = (id) => {
+        const updatedOpenBox = questions.map((q) =>
+          q.id === id ? { ...q, open: !q.open } : { ...q, open: false }
+        );
+        setQuestions(updatedOpenBox);
+      };
 
     return (
         <main className="flex h-screen justify-center bg-gradient-to-b from-soft-violet to-soft-blue">
@@ -40,62 +74,14 @@ export const FaqCardComponent = () => {
                         </div>
                     </div>
                     <div className="pt-24">
-                        <h2 className="text-center mb-6 text-3xl font-bold">FAQ</h2>
+                        <h2 className="mb-6 text-center text-3xl font-bold">
+                            FAQ
+                        </h2>
                         <div className="text-xs">
-                            <div className="mb-3">
-                                <div className="flex justify-between items-center">
-                                    <p className={`text-very-dark-desaturated-blue mb-1 hover:text-soft-red cursor-pointer ${isOpen && 'font-bold'}`}>How many team members can i invite?</p>
-                                    <ArrowButton isOpen={isOpen} handleButtonOpen={handleButtonOpen}/>
-                                </div>
-
-                                {
-
-                                <p className={`text-dark-grayish-blue mb-2  transition-all duration-500 ${!isOpen ? 'scale-y-0 h-0' : 'scale-y-100 ' }`}>
-                                    Lorem ipsum dolor sit, amet consectetur
-                                    adipisicing elit. Rem ducimus doloremque!
-                                    Reprehenderit!
-                                </p>
-
-                                }
-                                <hr className="border-light-grayish-blue"/>
-
-                            </div>
-                            <div className="mb-3">
-                                <div className="flex justify-between items-center">
-                                    <p className={`text-very-dark-desaturated-blue mb-1 hover:text-soft-red cursor-pointer ${isOpen && 'font-bold'}`}>How many team members can i invite?</p>
-                                    <ArrowButton isOpen={isOpen} handleButtonOpen={handleButtonOpen}/>
-                                </div>
-
-                                {
-
-                                <p className={`text-dark-grayish-blue mb-2  transition-all duration-500 ${!isOpen ? 'scale-y-0 h-0' : 'scale-y-100 ' }`}>
-                                    Lorem ipsum dolor sit, amet consectetur
-                                    adipisicing elit. Rem ducimus doloremque!
-                                    Reprehenderit!
-                                </p>
-
-                                }
-                                <hr className="border-light-grayish-blue"/>
-
-                            </div>
-                            <div className="mb-3">
-                                <div className="flex justify-between items-center">
-                                    <p className={`text-very-dark-desaturated-blue mb-1 hover:text-soft-red cursor-pointer ${isOpen && 'font-bold'}`}>How many team members can i invite?</p>
-                                    <ArrowButton isOpen={isOpen} handleButtonOpen={handleButtonOpen}/>
-                                </div>
-
-                                {
-
-                                <p className={`text-dark-grayish-blue mb-2  transition-all duration-500 ${!isOpen ? 'scale-y-0 h-0' : 'scale-y-100 ' }`}>
-                                    Lorem ipsum dolor sit, amet consectetur
-                                    adipisicing elit. Rem ducimus doloremque!
-                                    Reprehenderit!
-                                </p>
-
-                                }
-                                <hr className="border-light-grayish-blue"/>
-
-                            </div>
+                            <FaqQuestionBox
+                                handleButtonOpen={handleButtonOpen}
+                                questions={questions}
+                            />
                         </div>
                     </div>
                 </article>
