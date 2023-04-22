@@ -29,7 +29,7 @@ export const FaqQuestionBox = ({ handleButtonOpen, questions }) => {
 
                         {
                             <p
-                                className={`mb-3 text-dark-grayish-blue  transition-all duration-500 ${
+                                className={`mb-3 text-dark-grayish-blue w-[87%] transition-all duration-500 ${
                                     
                                     !q.open ? "h-0 scale-y-0" : "h-100 scale-y-100 "
                                 }`}
