@@ -49,7 +49,15 @@ export const FaqCardComponent = () => {
 
     return (
         <main className="flex h-screen justify-center bg-gradient-to-b from-soft-violet to-soft-blue">
-            <section className="xl:min-w-7xl flex flex-col items-center justify-center">
+            <section className="xl:min-w-7xl relative flex flex-col items-center justify-center">
+            <div
+                    className="absolute hidden xl:block xl:w-[30%] xl:-left-24 xl:bottom-52 z-20"
+                >
+                    <img
+                        src="./images/illustration-box-desktop.svg"
+                        alt="Arroba Box"
+                    />
+                </div>
                 <article className="relative w-80 justify-end rounded-3xl bg-white p-8 xl:z-10 xl:flex xl:w-[1100px] xl:flex-row xl:items-center xl:overflow-hidden xl:p-20">
                     <div className="absolute -top-2 left-[50%] max-h-[100%] max-w-[%100] translate-x-[-50%] translate-y-[-54%] xl:absolute xl:left-56 xl:top-80 xl:z-20">
                         <div className="relative w-56 xl:z-30 xl:w-[600px]">
@@ -60,10 +68,7 @@ export const FaqCardComponent = () => {
                                     className="xl:relative xl:z-40"
                                 />
                             </div>
-                            <div
-                                className="absolute bottom-10 w-[35%] xl:visible xl:-left-4 xl:bottom-12 xl:z-50 xl:w-[30%]"
-                                style={{ overflow: "visible" }}
-                            >
+                            <div className="absolute bottom-10 w-[35%] xl:hidden ">
                                 <img
                                     src="./images/illustration-box-desktop.svg"
                                     alt="Arroba Box"
