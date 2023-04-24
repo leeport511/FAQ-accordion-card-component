@@ -51,7 +51,7 @@ export const FaqCardComponent = () => {
         <main className="flex h-screen justify-center bg-gradient-to-b from-soft-violet to-soft-blue">
             <section className="xl:min-w-7xl relative flex flex-col items-center justify-center">
             <div
-                    className="absolute hidden xl:block xl:w-[30%] xl:-left-24 xl:bottom-52 z-20"
+                    className="absolute hidden xl:block xl:w-[30%] xl:-left-24 xl:bottom-[32%] z-20"
                 >
                     <img
                         src="./images/illustration-box-desktop.svg"
